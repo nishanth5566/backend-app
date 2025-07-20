@@ -1,31 +1,14 @@
-const express = require('express');
+const express = require("express");
+const{createUserRoutes}= require("./Routes/user");
+const{createCourseRoutes}= require("./Routes/courses");
 const app = express();
 
-app.post("/user/signup", function(req,res){
-    res.json({
-        message:"yoo signupppppppppp"
-    })
-})
-app.post("/user/sigin", function(req,res) {
-    res.json({
-        message:"yoo signinnnnnn"
-    })
-})
-app.get("/user/purchases", function(req,res){
-    res.json({
-        message:"yoo signupppppppppp"
-    })
-})
-app.post("/course/purchase", function(req,res){
-    res.json({
-        message:"yoo signupppppppppp"
-    })
-})
-app.get("/courses", function(req,res){
-    res.json({
-        message:"yoo signupppppppppp"
-    })
-})
+app.use("./user, createUserRoutes")
+app.use("./course, createCourseRoutes")
+
+createUserRoutes(app);
+createCourseRoutes(app);
+
 
 app.listen(3000);
 

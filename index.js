@@ -1,16 +1,14 @@
 const express = require("express");
-const{createUserRoutes}= require("./Routes/user");
-const{createCourseRoutes}= require("./Routes/courses");
+const{userRouter}= require("./Routes/user");
+const{courseRouter}= require("./Routes/courses");
 const app = express();
 
-app.use("./user, createUserRoutes")
-app.use("./course, createCourseRoutes")
+app.use("/api/v1/user", userRouter)
+app.use("/api/v1/course", courseRouter)
 
-createUserRoutes(app);
-createCourseRoutes(app);
-
-
-app.listen(3000);
+app.listen(3000);{
+    console.log("Server running on http://localhost:3000");
+}
 
 
 
